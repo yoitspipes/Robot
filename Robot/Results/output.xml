@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.0 on win32)" generated="2025-08-06T12:30:29.780011" rpa="false" schemaversion="5">
+<suite id="s1" name="Ad Hoc Record Dual Mp4 Slide And Cut &amp; Ad Hoc Record Dual Mp4 Slide And Trim">
+<suite id="s1-s1" name="Ad Hoc Record Dual Mp4 Slide And Cut" source="C:\Users\ryan_\Desktop\Python\Enghouse\Robot\Recorder\ad_hoc_record_dual_mp4_slide_and_cut.robot">
+<test id="s1-s1-t1" name="Launch Recorder Web Interface And Login" line="11">
+<kw name="Launch Recorder Web" owner="recorder_cut_trim">
+<status status="PASS" start="2025-08-06T12:30:30.969262" elapsed="1.563896"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:30:30.967742" elapsed="1.565416"/>
+</test>
+<test id="s1-s1-t2" name="Create New Ad-Hoc Presentation" line="14">
+<kw name="New Local Preso" owner="recorder_cut_trim">
+<arg>Dual Video MP4 and Slides Robot Test</arg>
+<arg>2 video 1 slide</arg>
+<status status="PASS" start="2025-08-06T12:30:32.533158" elapsed="0.811142"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:30:32.533158" elapsed="0.811142"/>
+</test>
+<test id="s1-s1-t3" name="Verify State Is Idle" line="17">
+<kw name="Check Recorder State" owner="recorder_cut_trim">
+<arg>Idle</arg>
+<status status="PASS" start="2025-08-06T12:30:33.344300" elapsed="0.019681"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-06T12:30:35.364514" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-06T12:30:33.363981" elapsed="2.000533"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:30:33.344300" elapsed="2.020214"/>
+</test>
+<test id="s1-s1-t4" name="Start Recording Presentation" line="21">
+<kw name="Start Recording Ui" owner="recorder_cut_trim">
+<arg>${30}</arg>
+<status status="PASS" start="2025-08-06T12:30:35.365027" elapsed="31.585160"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:30:35.365027" elapsed="31.585160"/>
+</test>
+<test id="s1-s1-t5" name="Verify State Is Recording" line="24">
+<kw name="Check Recorder State" owner="recorder_cut_trim">
+<arg>Recording</arg>
+<status status="PASS" start="2025-08-06T12:31:06.950691" elapsed="0.012498"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:31:06.950691" elapsed="0.012498"/>
+</test>
+<test id="s1-s1-t6" name="Add A Chapter" line="27">
+<kw name="Add Chapter" owner="recorder_cut_trim">
+<status status="PASS" start="2025-08-06T12:31:06.964701" elapsed="0.048525"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:31:06.963189" elapsed="0.050037"/>
+</test>
+<test id="s1-s1-t7" name="Perform Pause" line="30">
+<kw name="Pause Recording Ui" owner="recorder_cut_trim">
+<arg>${5}</arg>
+<status status="PASS" start="2025-08-06T12:31:07.014745" elapsed="5.054151"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:31:07.014745" elapsed="5.054658"/>
+</test>
+<test id="s1-s1-t8" name="Verify State Is Paused" line="33">
+<kw name="Check Recorder State" owner="recorder_cut_trim">
+<arg>Paused</arg>
+<status status="PASS" start="2025-08-06T12:31:12.069403" elapsed="0.010671"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:31:12.069403" elapsed="0.010671"/>
+</test>
+<test id="s1-s1-t9" name="Perform Resume" line="36">
+<kw name="Resume Recording Ui" owner="recorder_cut_trim">
+<arg>${5}</arg>
+<status status="PASS" start="2025-08-06T12:31:12.080074" elapsed="5.046589"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:31:12.080074" elapsed="5.046589"/>
+</test>
+<test id="s1-s1-t10" name="Verify State Is Back To Recording" line="39">
+<kw name="Check Recorder State" owner="recorder_cut_trim">
+<arg>Recording</arg>
+<status status="PASS" start="2025-08-06T12:31:17.126663" elapsed="0.017547"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:31:17.126663" elapsed="0.017547"/>
+</test>
+<test id="s1-s1-t11" name="Add Another Chapter" line="42">
+<kw name="Add Chapter" owner="recorder_cut_trim">
+<status status="PASS" start="2025-08-06T12:31:17.144725" elapsed="0.039874"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:31:17.144725" elapsed="0.039874"/>
+</test>
+<test id="s1-s1-t12" name="Stop Recording After 10 More Seconds" line="45">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-06T12:31:27.185150" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-06T12:31:17.184599" elapsed="10.000551"/>
+</kw>
+<kw name="Stop Recording Ui" owner="recorder_cut_trim">
+<status status="PASS" start="2025-08-06T12:31:27.185150" elapsed="4.154264"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:31:17.184599" elapsed="14.154815"/>
+</test>
+<test id="s1-s1-t13" name="Verify State Returns To Idle" line="49">
+<kw name="Check Recorder State" owner="recorder_cut_trim">
+<arg>Idle</arg>
+<status status="PASS" start="2025-08-06T12:31:31.340951" elapsed="0.022937"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:31:31.339414" elapsed="0.025988"/>
+</test>
+<test id="s1-s1-t14" name="Navigate To Presentations Page" line="52">
+<kw name="Nav Presos Pg" owner="recorder_cut_trim">
+<status status="PASS" start="2025-08-06T12:31:31.365402" elapsed="0.087669"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:31:31.365402" elapsed="0.087669"/>
+</test>
+<test id="s1-s1-t15" name="Find Recorded Presentation And Perform CUT" line="55">
+<kw name="Preso Cut" owner="recorder_cut_trim">
+<arg>Dual Video MP4 and Slides Robot Test</arg>
+<status status="PASS" start="2025-08-06T12:31:31.453071" elapsed="15.414071"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:31:31.453071" elapsed="15.414071"/>
+</test>
+<test id="s1-s1-t16" name="Find Cut Presentation And Check Playback" line="58">
+<kw name="Check Preso Playback" owner="recorder_cut_trim">
+<arg>Dual Video MP4 and Slides Robot Test(Cut)</arg>
+<status status="PASS" start="2025-08-06T12:31:46.867142" elapsed="6.607186"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:31:46.867142" elapsed="6.607186"/>
+</test>
+<test id="s1-s1-t17" name="Delete Cut Presentation" line="61">
+<kw name="Delete Preso" owner="recorder_cut_trim">
+<arg>Dual Video MP4 and Slides Robot Test(Cut)</arg>
+<status status="PASS" start="2025-08-06T12:31:53.474834" elapsed="4.291824"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:31:53.474834" elapsed="4.291824"/>
+</test>
+<test id="s1-s1-t18" name="Delete Original Presentation" line="64">
+<kw name="Delete Preso" owner="recorder_cut_trim">
+<arg>Dual Video MP4 and Slides Robot Test</arg>
+<status status="PASS" start="2025-08-06T12:31:57.768171" elapsed="4.098338"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:31:57.766658" elapsed="4.099851"/>
+</test>
+<doc>Recorder Web UI test for ad-hoc dual mp4 and slide recording and cut</doc>
+<status status="PASS" start="2025-08-06T12:30:29.796991" elapsed="92.070026"/>
+</suite>
+<suite id="s1-s2" name="Ad Hoc Record Dual Mp4 Slide And Trim" source="C:\Users\ryan_\Desktop\Python\Enghouse\Robot\Recorder\ad_hoc_record_dual_mp4_slide_and_trim.robot">
+<test id="s1-s2-t1" name="Launch Recorder Web Interface And Login" line="11">
+<kw name="Launch Recorder Web" owner="recorder_cut_trim">
+<msg time="2025-08-06T12:32:07.248918" level="INFO">No login modal appeared within timeout, proceeding...</msg>
+<status status="PASS" start="2025-08-06T12:32:01.870045" elapsed="5.378873"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:32:01.870045" elapsed="5.378873"/>
+</test>
+<test id="s1-s2-t2" name="Create New Ad-Hoc Presentation" line="14">
+<kw name="New Local Preso" owner="recorder_cut_trim">
+<arg>Dual Video MP4 and Slides Robot Test</arg>
+<arg>2 video 1 slide</arg>
+<status status="PASS" start="2025-08-06T12:32:07.248918" elapsed="0.326683"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:32:07.248918" elapsed="0.328201"/>
+</test>
+<test id="s1-s2-t3" name="Verify State Is Idle" line="17">
+<kw name="Check Recorder State" owner="recorder_cut_trim">
+<arg>Idle</arg>
+<status status="PASS" start="2025-08-06T12:32:07.577119" elapsed="0.014743"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-06T12:32:09.592285" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-06T12:32:07.591862" elapsed="2.000423"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:32:07.577119" elapsed="2.015166"/>
+</test>
+<test id="s1-s2-t4" name="Start Recording Presentation" line="21">
+<kw name="Start Recording Ui" owner="recorder_cut_trim">
+<arg>${30}</arg>
+<status status="PASS" start="2025-08-06T12:32:09.592797" elapsed="31.598289"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:32:09.592797" elapsed="31.598289"/>
+</test>
+<test id="s1-s2-t5" name="Verify State Is Recording" line="24">
+<kw name="Check Recorder State" owner="recorder_cut_trim">
+<arg>Recording</arg>
+<status status="PASS" start="2025-08-06T12:32:41.191086" elapsed="0.014178"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:32:41.191086" elapsed="0.014178"/>
+</test>
+<test id="s1-s2-t6" name="Add A Chapter" line="27">
+<kw name="Add Chapter" owner="recorder_cut_trim">
+<status status="PASS" start="2025-08-06T12:32:41.206791" elapsed="0.055174"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:32:41.206791" elapsed="0.055174"/>
+</test>
+<test id="s1-s2-t7" name="Perform Pause" line="30">
+<kw name="Pause Recording Ui" owner="recorder_cut_trim">
+<arg>${5}</arg>
+<status status="PASS" start="2025-08-06T12:32:41.261965" elapsed="5.050933"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:32:41.261965" elapsed="5.050933"/>
+</test>
+<test id="s1-s2-t8" name="Verify State Is Paused" line="33">
+<kw name="Check Recorder State" owner="recorder_cut_trim">
+<arg>Paused</arg>
+<status status="PASS" start="2025-08-06T12:32:46.312898" elapsed="0.011707"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:32:46.312898" elapsed="0.011707"/>
+</test>
+<test id="s1-s2-t9" name="Perform Resume" line="36">
+<kw name="Resume Recording Ui" owner="recorder_cut_trim">
+<arg>${5}</arg>
+<status status="PASS" start="2025-08-06T12:32:46.326137" elapsed="5.046768"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:32:46.324605" elapsed="5.048300"/>
+</test>
+<test id="s1-s2-t10" name="Verify State Is Back To Recording" line="39">
+<kw name="Check Recorder State" owner="recorder_cut_trim">
+<arg>Recording</arg>
+<status status="PASS" start="2025-08-06T12:32:51.373912" elapsed="0.012155"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:32:51.373409" elapsed="0.012658"/>
+</test>
+<test id="s1-s2-t11" name="Add Another Chapter" line="42">
+<kw name="Add Chapter" owner="recorder_cut_trim">
+<status status="PASS" start="2025-08-06T12:32:51.386067" elapsed="0.041547"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:32:51.386067" elapsed="0.041547"/>
+</test>
+<test id="s1-s2-t12" name="Stop Recording After 10 More Seconds" line="45">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-08-06T12:33:01.429676" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-08-06T12:32:51.429138" elapsed="10.000538"/>
+</kw>
+<kw name="Stop Recording Ui" owner="recorder_cut_trim">
+<status status="PASS" start="2025-08-06T12:33:01.429676" elapsed="4.143367"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:32:51.429138" elapsed="14.143905"/>
+</test>
+<test id="s1-s2-t13" name="Verify State Returns To Idle" line="49">
+<kw name="Check Recorder State" owner="recorder_cut_trim">
+<arg>Idle</arg>
+<status status="PASS" start="2025-08-06T12:33:05.573043" elapsed="0.013224"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:33:05.573043" elapsed="0.013224"/>
+</test>
+<test id="s1-s2-t14" name="Navigate To Presentations Page" line="52">
+<kw name="Nav Presos Pg" owner="recorder_cut_trim">
+<status status="PASS" start="2025-08-06T12:33:05.587802" elapsed="0.111316"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:33:05.587802" elapsed="0.111316"/>
+</test>
+<test id="s1-s2-t15" name="Find Recorded Presentation And Perform TRIM" line="55">
+<kw name="Preso Trim" owner="recorder_cut_trim">
+<arg>Dual Video MP4 and Slides Robot Test</arg>
+<status status="PASS" start="2025-08-06T12:33:05.700641" elapsed="15.160320"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:33:05.699118" elapsed="15.161843"/>
+</test>
+<test id="s1-s2-t16" name="Find Trimmed Presentation And Check Playback" line="58">
+<kw name="Check Preso Playback" owner="recorder_cut_trim">
+<arg>Dual Video MP4 and Slides Robot Test(Trim)</arg>
+<status status="PASS" start="2025-08-06T12:33:20.861465" elapsed="6.580222"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:33:20.861465" elapsed="6.581820"/>
+</test>
+<test id="s1-s2-t17" name="Delete Trimmed Presentation" line="61">
+<kw name="Delete Preso" owner="recorder_cut_trim">
+<arg>Dual Video MP4 and Slides Robot Test(Trim)</arg>
+<status status="PASS" start="2025-08-06T12:33:27.443285" elapsed="4.199037"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:33:27.443285" elapsed="4.199037"/>
+</test>
+<test id="s1-s2-t18" name="Delete Original Presentation" line="64">
+<kw name="Delete Preso" owner="recorder_cut_trim">
+<arg>Dual Video MP4 and Slides Robot Test</arg>
+<status status="PASS" start="2025-08-06T12:33:31.642832" elapsed="4.119351"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:33:31.642832" elapsed="4.119351"/>
+</test>
+<test id="s1-s2-t19" name="Teardown Test Session" line="68">
+<kw name="Teardown Actions">
+<kw name="Terminate" owner="recorder_cut_trim">
+<status status="PASS" start="2025-08-06T12:33:35.762694" elapsed="2.245613"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:33:35.762694" elapsed="2.245613"/>
+</kw>
+<status status="PASS" start="2025-08-06T12:33:35.762694" elapsed="2.245613"/>
+</test>
+<doc>Recorder Web UI test for ad-hoc dual mp4 and slide recording and trim</doc>
+<status status="PASS" start="2025-08-06T12:32:01.867017" elapsed="96.141290"/>
+</suite>
+<status status="PASS" start="2025-08-06T12:30:29.781525" elapsed="188.228325"/>
+</suite>
+<statistics>
+<total>
+<stat pass="37" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="37" fail="0" skip="0" id="s1" name="Ad Hoc Record Dual Mp4 Slide And Cut &amp; Ad Hoc Record Dual Mp4 Slide And Trim">Ad Hoc Record Dual Mp4 Slide And Cut &amp; Ad Hoc Record Dual Mp4 Slide And Trim</stat>
+<stat pass="18" fail="0" skip="0" id="s1-s1" name="Ad Hoc Record Dual Mp4 Slide And Cut">Ad Hoc Record Dual Mp4 Slide And Cut &amp; Ad Hoc Record Dual Mp4 Slide And Trim.Ad Hoc Record Dual Mp4 Slide And Cut</stat>
+<stat pass="19" fail="0" skip="0" id="s1-s2" name="Ad Hoc Record Dual Mp4 Slide And Trim">Ad Hoc Record Dual Mp4 Slide And Cut &amp; Ad Hoc Record Dual Mp4 Slide And Trim.Ad Hoc Record Dual Mp4 Slide And Trim</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
