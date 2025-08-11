@@ -354,21 +354,33 @@ def stop_recording_ui():
 	assert new_status, "Status should be 'Idle' but is: " + new_status
 
 def delete_preso(preso_title):
-	nav_presos_pg()
+	#nav_presos_pg()
 
 	all_presos = wait.until(EC.visibility_of_all_elements_located((By.CLASS_NAME, "presentation-item")))
 	for p in all_presos:
 		if preso_title in p.text:
 			delete = p.find_element(By.ID, "btnDelete")
 			delete.click()
+			delete_confirm = wait.until(EC.visibility_of_element_located((By.CLASS_NAME, "confirm-content")))
+			assert "Are you sure you want to permanently delete this presentation?" in delete_confirm.text, "There should be a confirmation of deletion here"
+			break
 
-	delete_confirm = wait.until(EC.text_to_be_present_in_element((By.CLASS_NAME, "confirm-content"), "Are you sure you want to permanently delete this presentation?"))
-	assert delete_confirm, "There should be a confirmation of deletion here"
 
-	do_it = b.find_element(By.ID, "btnOk")
+	do_it = wait.until(EC.visibility_of_element_located((By.ID, "btnOk")))
 	do_it.click()
 
-	time.sleep(2)
+	time.sleep(1)
+
+def count_dupe_presos(preso_title):
+	all_presos = wait.until(EC.visibility_of_all_elements_located((By.CLASS_NAME, "presentation-item")))
+	matching_presos = [p for p in all_presos if preso_title in p.text]
+	return(len(matching_presos))
+
+def delete_all_presos(preso_title):
+	dupe_count = count_dupe_presos(preso_title=preso_title)
+	for i in range(dupe_count):
+		delete_preso(preso_title=preso_title)
+
 
 def refresh():
 	b.refresh()
