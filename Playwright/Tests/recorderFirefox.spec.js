@@ -95,10 +95,14 @@ test('Navigate to Presentations Tab', async () => {
   await recRunner.navPresoTab(page);
 });
 
-//TODO: False pass, doesn't actually find/delete presentation
 test('Delete the Recorded Presentation', async () => {
   await recRunner.deletePresentation(page, 'Playwright Recorder Smoke Test');
-  await page.waitForTimeout(5000);
+});
+
+test('Confirm Delete the Recorded Presentation', async () => {
+  await expect(page.locator('.confirm-content')).toContainText('Are you sure you want to permanently delete this presentation?');
+  const okBtn = page.locator('#btnOk');
+  await okBtn.click();
 });
 
 test('Log Out of Recorder', async () => {

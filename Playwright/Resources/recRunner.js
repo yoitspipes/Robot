@@ -18,16 +18,17 @@ async function loginRecorder(page) {
 async function navPresoTab(page) {
   const presTab = page.locator('.btn-presentations');
   await presTab.click();
+  await page.waitForTimeout(1000);
 }
 
 async function navSettingsTab(page) {
-  const presTab = page.locator('.btn-settings');
-  await presTab.click();
+  const settTab = page.locator('.btn-settings');
+  await settTab.click();
 }
 
 async function navSchedTab(page) {
-  const presTab = page.locator('.btn-schedules');
-  await presTab.click();
+  const schedTab = page.locator('.btn-schedules');
+  await schedTab.click();
 }
 
 async function openInputs(page) {
@@ -63,35 +64,28 @@ async function logoutRecorder(page) {
 
 //This will find the Presentation by title, click "Delete" but will NOT confirm delete
 async function deletePresentation(page, presoTitle) {
-  // Narrow down to presentation items
   const allPresos = page.locator('.presentation-item');
   const count = await allPresos.count();
+  let found = false;
 
   for (let i = 0; i < count; i++) {
     const item = allPresos.nth(i);
-    const text = await item.textContent();
+    const titleLocator = item.locator('.presentation-item-name');
+    const titleText = await titleLocator.textContent();
 
-    if (text && text.includes(presoTitle)) {
-      // Click the Delete button within the matched item only
-      const checkbox = item.locator('.grid-row-checkbox');
-      const deleteBtn = page.locator('#btnDelete');
-      await checkbox.click();
+    if (titleText && titleText.trim().includes(presoTitle)) {
+      found = true;
+
+      const deleteBtn = item.locator('#btnDelete'); // scoped to item
       await deleteBtn.click();
-      await page.waitForTimeout(12000);
-
-      await expect(page.locator('.confirm-content')).toContainText(
-        'Are you sure you want to permanently delete this presentation?'
-      );
-
-      await page.locator('#btnOk').click();
-      await page.waitForTimeout(2000);
       break;
     }
   }
+
+  if (!found) {
+    throw new Error(`Presentation titled "${presoTitle}" was not found.`);
+  }
 }
-
-
-
 
 
 
