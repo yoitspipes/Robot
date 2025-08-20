@@ -7,6 +7,7 @@ import subprocess
 import winreg
 import pygetwindow as gw
 from pywinauto.application import Application
+import win32com.client
 
 #This will close Recorder Express UI if it is open, otherwise proceeds
 def close_express_window(partial_title, case_insensitive=True):
@@ -29,8 +30,7 @@ def close_express_window(partial_title, case_insensitive=True):
         except Exception as e:
             print(f"Failed to close '{win.title}': {e}")
 
-#PowerShell scripts called below to shut down Recorder Express processes prior to uninstall, and delete leftover directories post-uninstall
-#TODO - Consider using psutil
+#PowerShell scripts called here to shut down Recorder Express processes prior to uninstall, and delete leftover directories post-uninstall
 def terminator(powshell_script_path):
     result = subprocess.run(["powershell.exe", "-ExecutionPolicy", "Bypass", "-File", powshell_script_path],
     capture_output=True,
@@ -106,8 +106,21 @@ def uninstall_recorder():
    try:
        subprocess.run(uninstall_cmd, shell=True, check=True)
        print(f"Successfully uninstalled {APP_NAME}")
+       print()
    except subprocess.CalledProcessError as e:
        print(f"Uninstall failed: {e}")
+
+def delete_task(task):
+    task_scheduler = win32com.client.Dispatch("Schedule.Service")
+    task_scheduler.connect()
+
+    folder = task_scheduler.GetFolder("\\Mediasite")
+    folder.DeleteTask(task, 0)
+
+    root = task_scheduler.GetFolder("\\")
+    root.DeleteFolder("\\Mediasite", 0)
+
+    print("Deleted Mediasite entries from Task Scheduler")
 
 def disable_iis():
    try:
@@ -132,6 +145,8 @@ def main():
     print()
     terminator(r"C:\\Users\\mediasite\\Desktop\\Python\\remove_recorder_directories.ps1")
     print("Recorder Express directories have been removed.")
+    print()
+    delete_task("RecorderManagementHost")
     print()
     disable_iis()
     print()
