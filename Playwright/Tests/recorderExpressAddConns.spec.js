@@ -86,12 +86,14 @@ test('Click Add Button To Save The MVP Connection', async () => {
 
 test('Click on Scheduler Connections', async () => {
   await page.locator('text=Scheduler Connections').click();
+  await page.waitForTimeout(1000);
 });
 
 test('Enable Scheduler', async () => {
   //await page.locator('.icheckbox_square').click();
   //await page.locator('.iCheck-helper').click();
   await page.locator('.icheckbox_square').first().click();
+  //await page.locator('text=Enable Scheduler').click();
 });
 
 test('Click Add New (Scheduler) Connection', async () => {
@@ -122,4 +124,14 @@ test('Click Test Connection and Verify Success For Scheduler Connection', async 
 
 test('Click Add Button To Save The MVP Scheduler Connection', async () => {
   await page.locator('#modalForm #btnAdd').click();
+  await page.waitForTimeout(1000);
+});
+
+test('Navigate To Scheduler Tab And Perform Sync', async  () => {
+  await recExpressRunner.navSchedTab(page);
+  await page.locator('#btnSync').click();
+});
+
+test('Verify Schedule Sync Is Successful And Not Disconnected', async () => {
+  await expect(page.locator('#lblLastSync')).not.toHaveText('DISCONNECTED');
 });

@@ -52,8 +52,8 @@ test('Open Inputs', async () => {
   await page.locator('#btnInputSelect').click();
 });
 
-test('Collapse File Sources', async () => {
-  await page.locator('text=File Sources').click();
+test('Collapse All Input Chevrons', async () => {
+  await recExpressRunner.collapseInputChevrons(page);
 });
 
 test('Expand Desktop Capture Sources', async () => {
