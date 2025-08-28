@@ -1,5 +1,5 @@
 Samples of basic Robot Framework and Playwright tests vs. Mediasite Recorder
 
-Why not use Robot Framework's Selenium library?
+Only sharing what is not trade secrets
 
-Prefer to keep the Robot test scripts refined and easy to read.  The helper files (i.e. rec_runner.py) will do the heavier lifting.
+Player and playback tests coming soon
